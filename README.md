@@ -1,5 +1,5 @@
 # homework-tg-bot
 
-##Database schema
+Database schema
 -----------------
-![image alt](pictures/Schema.png)
+![image](pictures/Schema.png)
