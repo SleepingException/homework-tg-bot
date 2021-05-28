@@ -6,3 +6,6 @@
 -----------------
 ## Bot Class diagram
 ![image](pictures/Bot.jpg)
+-----------------
+## Interaction diagram
+![image](pictures/Interaction.jpg)
