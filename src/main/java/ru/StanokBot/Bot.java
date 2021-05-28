@@ -44,12 +44,11 @@ public class Bot extends TelegramLongPollingBot {
                 msg.setChatId(String.valueOf(update.getCallbackQuery().getMessage().getChatId()));
                 if (week.contains(update.getCallbackQuery().getData())) {
                     botService.buildSubjectsKeyboard(update.getCallbackQuery().getData(), msg);
-                    execute(msg);
                 }
                 else{
                     botService.getSubjectData(Integer.parseInt(update.getCallbackQuery().getData()), msg);
-                    execute(msg);
                 }
+                execute(msg);
             }
             catch (Exception e){
                 e.printStackTrace();
