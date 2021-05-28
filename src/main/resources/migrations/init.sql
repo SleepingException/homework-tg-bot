@@ -13,7 +13,7 @@ ALTER TABLE public.days
 
 CREATE TABLE public.subjects
 (
-    id integer NOT NULL DEFAULT nextval((1)::regclass),
+    id integer NOT NULL DEFAULT nextval('id_seq'::regclass),
     day_name character varying(20) COLLATE pg_catalog."default" NOT NULL,
     homework text COLLATE pg_catalog."default",
     "time" time without time zone,

@@ -9,3 +9,5 @@ insert into "public".subjects (id, day_name, homework, time, info, name) values 
 insert into "public".subjects (id, day_name, homework, time, info, name) values (2, 'пн', null, null, null, 'Физ-ра');
 insert into "public".subjects (id, day_name, homework, time, info, name) values (3, 'пн', null, null, null, 'ВССиТ');
 insert into "public".subjects (id, day_name, homework, time, info, name) values (4, 'пн', null, null, null, 'ТСИС');
+insert into "public".subjects (id, day_name, homework, time, info, name) values (5, 'вт', null, null, 'Семинар', 'ООП');
+insert into "public".subjects (id, day_name, homework, time, info, name) values (6, 'вт', null, null, 'Семинар', 'История');

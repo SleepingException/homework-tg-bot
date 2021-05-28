@@ -63,6 +63,9 @@ public class Bot extends TelegramLongPollingBot {
                     e.printStackTrace();
                 }
             }
+            else {
+                botService.updateSubject(update.getMessage().getText());
+            }
         }
     }
 }

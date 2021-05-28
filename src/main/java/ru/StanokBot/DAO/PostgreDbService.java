@@ -38,8 +38,9 @@ public class PostgreDbService implements DBService {
     public List<Day> getDays(){
         List<Day> res = new ArrayList<>();
         try {
-            PreparedStatement statement = connection
-                    .prepareStatement("select * from \"public\".days order by id asc");
+            PreparedStatement statement = connection.prepareStatement(
+                    "select * from \"public\".days order by id asc"
+            );
             res = mapper.mapDays(statement.executeQuery());
         }
     catch (SQLException e){
@@ -52,7 +53,9 @@ public class PostgreDbService implements DBService {
     public List<Subject> getSubjects(String dayName){
         List<Subject> res = new ArrayList<>();
         try {
-            PreparedStatement statement = connection.prepareStatement("select * from \"public\".subjects where day_name = ?");
+            PreparedStatement statement = connection.prepareStatement(
+                    "select * from \"public\".subjects where day_name = ?"
+            );
             statement.setString(1, dayName);
             res = mapper.mapSubjects(statement.executeQuery());
         }
@@ -61,10 +64,13 @@ public class PostgreDbService implements DBService {
         }
         return res;
     }
+
     @Override
     public String getSubjectData(int id){
         try {
-            PreparedStatement statement = connection.prepareStatement("select * from \"public\".subjects where id = ?");
+            PreparedStatement statement = connection.prepareStatement(
+                    "select * from \"public\".subjects where id = ?"
+            );
             statement.setInt(1, id);
             return mapper.mapSubject(statement.executeQuery()).toString();
         }
@@ -73,4 +79,26 @@ public class PostgreDbService implements DBService {
         }
         return "Error =)";
     }
+
+    @Override
+    public void updateSubject(Subject dto) {
+        try{
+            PreparedStatement statement = connection.prepareStatement(
+                    "update \"public\".subjects " +
+                            "set info = ? , homework = ?, time = ?"+
+                            "where name = ?"
+            );
+            statement.setString(1, dto.getInfo());
+            statement.setString(2, dto.getHomework());
+            statement.setTime(3, dto.getTime());
+            statement.setString(4, dto.getName());
+            statement.execute();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
 }

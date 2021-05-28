@@ -15,8 +15,10 @@ import java.util.List;
 public class BotServiceImpl implements BotService {
 
     private DBService dbService;
+    private Parser parser;
     public BotServiceImpl(){
         dbService = new PostgreDbService();
+        parser = new Parser();
     }
 
     @Override
@@ -53,10 +55,19 @@ public class BotServiceImpl implements BotService {
         markupKeyboard.setKeyboard(buttons);
         msg.setReplyMarkup(markupKeyboard);
     }
-
     @Override
     public void getSubjectData(int id, SendMessage msg) {
         msg.setText(dbService.getSubjectData(id));
     }
+
+    @Override
+    public void updateSubject(String text) {
+        Subject subject = parser.parse(text);
+        if (subject.getName() != null) {
+            dbService.updateSubject(subject);
+        }
+        else return;
+    }
+
 
 }

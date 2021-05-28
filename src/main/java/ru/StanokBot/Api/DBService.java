@@ -9,4 +9,5 @@ public interface DBService {
     List<Day> getDays();
     List<Subject> getSubjects(String dayName);
     String getSubjectData(int id);
+    void updateSubject(Subject dto);
 }
