@@ -5,4 +5,4 @@
 ![image](pictures/Schema.png)
 -----------------
 ## Bot Class diagram
-![image](pictures/Bot.png)
+![image](pictures/Bot.jpeg)
