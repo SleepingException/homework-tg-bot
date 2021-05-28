@@ -1,3 +1,4 @@
+CREATE SEQUENCE id_seq MINVALUE = 0 NO MAXVALUE CYCLE;
 CREATE TABLE public.days
 (
     id integer NOT NULL,
