@@ -15,22 +15,26 @@ import java.util.List;
 public class Bot extends TelegramLongPollingBot {
 
     private final BotService botService;
+    private String botUsername;
+    private String botToken;
 
     private final List<String> week = new ArrayList<>(Arrays.asList(
             "пн", "вт","ср","чт","пт","сб"
     ));
 
     public String getBotUsername() {
-        return "BuldaebBot";
+        return botUsername;
     }
 
     public String getBotToken() {
-        return "1140935874:AAFnJTkVlxB1hMDbbkwoRM3NAVjkh0clSno";
+        return botToken;
     }
 
-    public Bot() {
+    public Bot(String name, String token) {
         super();
-        this.botService = new BotServiceImpl();
+        botUsername = name;
+        botToken = token;
+        botService = new BotServiceImpl();
     }
 
     public void onUpdateReceived(Update update) {
